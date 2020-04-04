@@ -37,4 +37,4 @@ jobs:
           git remote set-url origin git@github.com:${GITHUB_REPOSITORY}.git
           git add docs
           git commit -m "auto rebuilding site"
-          git push origin master
+          git push origin gh-pages
