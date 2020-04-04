@@ -19,7 +19,7 @@ jobs:
         run: yarn
       - name: Git checkout
         run: |
-          git checkout gh-pages
+          git checkout -b gh-pages origin/gh-pages
           git merge origin/master
       - name: Build html
         run: yarn build
