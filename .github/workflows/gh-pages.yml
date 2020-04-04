@@ -18,7 +18,9 @@ jobs:
       - name: Install dependencies
         run: yarn
       - name: Git checkout
-        run: git checkout -b gh-pages origin/master
+        run: |
+          git pull
+          git checkout -b gh-pages origin/master
       - name: Build html
         run: yarn build
       - name: Move files
