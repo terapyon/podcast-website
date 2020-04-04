@@ -10,29 +10,31 @@ jobs:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'auto rebuilding site')"
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Node.js 12.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: '12.x'
-    - name: Install dependencies
-      run: yarn
-    - name: Build html
-      run: yarn build
+      - uses: actions/checkout@v2
+      - name: Set up Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Install dependencies
+        run: yarn
+      - name: Build html
+        run: yarn build
+      - name: Move files
+        run: mv .vuepress/dist docs
       - name: Deploy Configuration
-      run: |
+        run: |
           mkdir ~/.ssh
           ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
           echo "${{ secrets.SITE_ACTION_DEPLOY_KEY }}" > ~/.ssh/id_rsa
           chmod 400 ~/.ssh/id_rsa
-    - name: Push
-      env:
-        GITHUB_USER: "builduser"
-        GITHUB_EMAIL: "terada+gh-builder@cmscom.jp"
-      run: |
+      - name: Push
+        env:
+          GITHUB_USER: "builduser"
+          GITHUB_EMAIL: "terada+gh-builder@cmscom.jp"
+        run: |
           git config --local user.name "${GITHUB_USER}"
           git config --local user.email "${GITHUB_EMAIL}"
           git remote set-url origin git@github.com:${GITHUB_REPOSITORY}.git
-          git add .vuepress/dist
+          git add docs
           git commit -m "auto rebuilding site"
           git push origin master
