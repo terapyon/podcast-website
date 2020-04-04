@@ -22,7 +22,7 @@ jobs:
       - name: Build html
         run: yarn build
       - name: Move files
-        run: mv src/.vuepress/dist .
+        run: mv src/.vuepress/dist/* .
       - name: Deploy Configuration
         run: |
           mkdir ~/.ssh
