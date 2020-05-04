@@ -6,7 +6,9 @@
   "author": "terapyon <terada@cmscom.jp>",
   "license": "MIT",
   "devDependencies": {
-    "vuepress": "^1.4.0"
+    "@vuepress/plugin-google-analytics": "^1.4.1",
+    "vuepress": "^1.4.0",
+    "vuepress-plugin-aplayer": "^1.0.2"
   },
   "scripts": {
     "dev": "vuepress dev src",

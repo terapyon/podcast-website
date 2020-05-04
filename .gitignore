@@ -5,7 +5,7 @@ node_modules
 # local env files
 .env.local
 .env.*.local
-.vuepress
+#.vuepress
 
 # Log files
 npm-debug.log*
