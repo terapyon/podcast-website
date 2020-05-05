@@ -1,6 +1,7 @@
-from typing import Dict, List, Optional
+from typing import Dict, List, Generator, Optional
 import dataclasses  # for Test
 from dataclasses import dataclass, field
+from pathlib import Path
 import feedparser  # type: ignore
 
 RSS_URL = "https://anchor.fm/s/14480e04/podcast/rss"
@@ -53,13 +54,37 @@ def get_detail(item: Dict[str, Optional[str]]) -> Episode:
     return Episode(*field_values)
 
 
+def _get_filenames(path: Path) -> Generator[str, None, None]:
+    for entry in path.iterdir():
+        if entry.is_file():
+            entry_prefix = entry.stem
+            if entry_prefix.isdigit():
+                yield entry_prefix
+
+
+def _get_last_filename(path: Path) -> str:
+    filenames = list(_get_filenames(path))
+    sorted_filenames = sorted(filenames)
+    last_filename = sorted_filenames[-1]
+    return last_filename
+
+
+def create_page(episode: Episode, path: Optional[Path] = None) -> None:
+    if path is None:
+        path = Path(".") / "src" / "episodes"
+    last_filename = _get_last_filename(path)
+    print(last_filename)
+    return None
+
+
 if __name__ == "__main__":
     url = RSS_URL
     items = fetch_episode(url)
-    # print(items)
     for item in items[:1]:
         detail = get_detail(item)
-        print(detail)
+        # print(detail)
+        create_page(detail)
+
     # fields = dataclasses.fields(Episode)
     # for field in fields:
     #     if field.init:
