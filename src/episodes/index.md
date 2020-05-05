@@ -1,6 +1,7 @@
 ---
 title: エピソード一覧
 description: terapyon channelのエピソード一覧です。
+exclude: true
 meta:
  - name: og:title
    content: 'エピソード一覧'
@@ -12,7 +13,7 @@ meta:
 
 エピソード一覧
 
-TBD
 
+<Episodes :pages="this.$site.pages" :prefix="this.$page.path"/>
 
 
