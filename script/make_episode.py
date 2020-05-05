@@ -26,6 +26,7 @@ season: {itunes_season}
 number: {itunes_episode}
 length: {length}
 audio_url: {audio_url}
+image_href: {image_href}
 meta:
  - name: og:title
    content: '{title}'

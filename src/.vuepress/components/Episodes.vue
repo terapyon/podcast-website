@@ -17,12 +17,12 @@
         :options="{
             audio: [
                 {
-                    name: '{{page.title}}',
-                    artist: 'terapyon',
-                    url: '{{page.frontmatter.audio_url}}',
-                    cover: '{{page.frontmatter.image_href}}'
+                name: page.title,
+                artist: 'terapyon',
+                url: page.frontmatter.audio_url,
+                cover: page.frontmatter.image_href
                 }
-                ]
+            ]
             }"
       />
     </div>
