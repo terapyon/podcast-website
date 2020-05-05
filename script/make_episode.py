@@ -20,13 +20,13 @@ class Episode:
     title: str
     summary: str
     links: List[Dict[str, str]]
-    id_: str
+    id: str
     author: str
     published: str
     image: str
     # duration: int  # itunes_duration
-    season: int  # itunes_season
-    number: int  # itunes_episode
+    itunes_season: int  # season number
+    itunes_episode: int  # episode number
     length: int = field(init=False)
     audio_url: str = field(init=False)
 
@@ -46,23 +46,22 @@ def fetch_episode(url: str) -> List[Dict[str, Optional[str]]]:
     return items
 
 
-def get_detail(item: Dict[str, Optional[str]]) -> str:
-    for key, value in item.items():
-        print(key)
-        print(value)
-        print("======")
-    return "Done"
+def get_detail(item: Dict[str, Optional[str]]) -> Episode:
+    field_values = [
+        item.get(field.name) for field in dataclasses.fields(Episode) if field.init
+    ]
+    return Episode(*field_values)
 
 
 if __name__ == "__main__":
     url = RSS_URL
-    # items = fetch_episode(url)
-    # # print(items)
-    # for item in items[:1]:
-    #     detail = get_detail(item)
-    #     print(detail)
-    fields = dataclasses.fields(Episode)
-    for field in fields:
-        if field.init:
-            print(field.name)
-        # breakpoint()
+    items = fetch_episode(url)
+    # print(items)
+    for item in items[:1]:
+        detail = get_detail(item)
+        print(detail)
+    # fields = dataclasses.fields(Episode)
+    # for field in fields:
+    #     if field.init:
+    #         print(field.name)
+    #     # breakpoint()
