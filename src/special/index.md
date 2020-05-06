@@ -1,3 +1,13 @@
+---
+title: Special
+description: 特集ページです。
+exclude: true
+meta:
+ - name: og:title
+   content: 'Special'
+ - name: og:description
+   content: '特集ページです。'
+---
 # Special
 
 ## Season 2 第1段 Effective Python

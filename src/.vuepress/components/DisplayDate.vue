@@ -20,7 +20,7 @@ export default {
   props: ["dateStr"],
   filters: {
     moment(value, format) {
-      moment.lang("ja");
+      moment.locale("ja");
       return moment(value).format(format);
     }
   }
