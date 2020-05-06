@@ -19,14 +19,6 @@ module.exports = {
             { text: 'Episodes', link: '/episodes/' },
             { text: 'Special', link: '/special/' }
         ],
-        sidebar: [
-            {
-                title: 'EPISODES',
-                children: [
-                    '/episodes/'
-                ]
-            }
-        ],
         searchPlaceholder: 'Search...',
         smoothScroll: true
     },

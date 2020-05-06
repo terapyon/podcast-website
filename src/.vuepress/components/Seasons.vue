@@ -5,16 +5,19 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: "Articles",
-  props: ["pages", "prefix"],
+  props: ["pages", "prefix", "season"],
   computed: {
     filteredPages() {
       return this.pages
         .filter(page => page.path.includes(this.prefix || ""))
-        .reverse();
+        .filter(page => page.frontmatter.season == this.season || 0)
+        .sort(function(a, b) {
+          //   console.log(a.path < b.path);
+          return a.path < b.path;
+        });
     }
   }
 };

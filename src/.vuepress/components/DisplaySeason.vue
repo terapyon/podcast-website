@@ -1,11 +1,11 @@
 <template>
   <div id="display-season">
     <div class="season">
-      <span class="label">Season</span>
+      <span class="label">Season:</span>
       <span class="number">{{season}}</span>
     </div>
     <div class="topic">
-      <span class="label">Topic</span>
+      <span class="label">Topic:</span>
       <span class="number">{{topic}}</span>
     </div>
   </div>
@@ -45,5 +45,6 @@ export default {
 }
 .number {
   font-size: 14px;
+  font-weight: bold;
 }
 </style>

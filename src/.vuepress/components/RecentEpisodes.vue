@@ -5,16 +5,16 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: "Articles",
-  props: ["pages", "prefix"],
+  props: ["pages", "prefix", "limit"],
   computed: {
     filteredPages() {
       return this.pages
         .filter(page => page.path.includes(this.prefix || ""))
-        .reverse();
+        .reverse()
+        .slice(0, (this.limit || 10) + 1);
     }
   }
 };
