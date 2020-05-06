@@ -37,9 +37,9 @@ meta:
 
 CONTENT_MAIN = """# {title}
 
-Published: {published}
+<DisplayDate :dateStr="'{published}'" />
+<DisplaySeason :season="{itunes_season}" :topic="{itunes_episode}" />
 
-Season: {itunes_season} / Number: {itunes_episode}
 
 # Note
 
