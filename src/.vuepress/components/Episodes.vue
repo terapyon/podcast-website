@@ -1,10 +1,15 @@
 <template>
   <div>
     <div v-for="page in filteredPages" class="box-episode" v-if="!page.frontmatter.exclude">
-      <h3 class="article-title">
-        <router-link :to="page.path">{{page.title || 'No Title'}}</router-link>
-      </h3>
-      <div>{{page.frontmatter.date}}</div>
+      <div class="episode-title">
+        <h3 class="article-title">
+          <router-link :to="page.path">{{page.title || 'No Title'}}</router-link>
+        </h3>
+        <div class="episode-date">
+          <DisplayDate :dateStr="page.frontmatter.date"></DisplayDate>
+          <DisplaySeason :season="page.frontmatter.season" :topic="page.frontmatter.number" />
+        </div>
+      </div>
       <div class="tag-container">
         <i class="fas fa-tags tag-icon"></i>
         <div v-for="c in page.frontmatter.category" class="tag">{{c}}</div>
@@ -25,16 +30,6 @@
             ]
             }"
       />
-    </div>
-
-    <div class="entry-date date first">
-      <time pubdate datetime="2017-01-29T09:44:54Z" title="2017-01-29T09:44:54Z">
-        <span class="date-year">2017</span>
-        <span class="hyphen">-</span>
-        <span class="date-month">01</span>
-        <span class="hyphen">-</span>
-        <span class="date-day">29</span>
-      </time>
     </div>
   </div>
 </template>
@@ -66,42 +61,16 @@ export default {
   margin: 0;
   padding: 0;
 }
-/*  */
-/* // add */
-/* 日付手縫いステッチ風 */
-.entry-header .date {
-  position: absolute;
-  left: -105px;
-  padding: 8px 6px;
-  width: 62px;
-  background: #47a89c;
-  border-radius: 1px;
-  border: 1px dashed #fff;
-  box-shadow: 0 0 0 4px #47a89c;
-  text-align: center;
-  line-height: 1;
-}
-.date time {
-  font-family: "Montserrat", san-serif;
-  color: #050505;
-  text-decoration: none;
-  font-size: 26px;
-}
-.hyphen {
-  display: none;
-}
 
-.date-year {
-  display: block;
-}
-.date-year {
-  font-size: 14px;
-}
-.date-day,
-.date-month {
+.article-title {
   display: inline-block;
+  text-align: left;
+  vertical-align: top;
+  width: 590px;
+  margin: 10px 0;
 }
-.date-month::after {
-  content: "/";
+.episode-date {
+  display: inline-block;
+  text-align: right;
 }
 </style>
