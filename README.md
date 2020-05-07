@@ -44,3 +44,22 @@ yarn build
 # 参考資料
 
 - https://vuepress.vuejs.org/
+
+
+# コンテンツの生成
+
+```
+$ cd podcast-website
+$ python script/make_episode.py
+```
+
+- episodesフォルダに新規に `.md` ファイルが作られる
+- `.episode_list` ファイルが更新され取得済みのエピソードのIDが記録される
+
+```
+$ git add src/episodes/NEW_FILE.md
+$ git commit src/episodes/NEW_FILE.md script/.episode_list -m "Create a new episode content"
+$ git push origin master
+```
+
+Netlifyに自動ビルドが走る
