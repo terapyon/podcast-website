@@ -6,8 +6,8 @@ jobs:
   build:
     name: make-episode
     runs-on: ubuntu-latest
-     env:
-        REPO: https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git
+    env:
+      REPO: https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.8
