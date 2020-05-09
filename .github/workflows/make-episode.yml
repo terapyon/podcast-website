@@ -1,7 +1,7 @@
 name: make-new-episode
 on:
   schedule:
-    - cron: '5 17 * * *'
+    - cron: '5 8 * * *'
 jobs:
   build:
     name: make-episode
