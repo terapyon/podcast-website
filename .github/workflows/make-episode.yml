@@ -2,11 +2,12 @@ name: make-new-episode
 on:
   schedule:
     - cron: '5 17 * * *'
-  push:
 jobs:
   build:
     name: make-episode
     runs-on: ubuntu-latest
+     env:
+        REPO: https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.8
@@ -26,4 +27,4 @@ jobs:
         git config user.email "terada@cmscom.jp"
         git add -A
         git commit -a -m "Create a new episode content"
-        git push origin master
+        git push ${REPO} master
