@@ -1,4 +1,3 @@
-import sys
 from typing import Dict, List, Generator, Optional
 import dataclasses  # for Test
 from dataclasses import dataclass, field, asdict
@@ -198,6 +197,9 @@ if __name__ == "__main__":
         # print(detail)
         if not _check_episode_id(detail.id):
             create_page(detail)
-            print("make episode")
-        else:
-            print("no episode")
+
+    # fields = dataclasses.fields(Episode)
+    # for field in fields:
+    #     if field.init:
+    #         print(field.name)
+    #     # breakpoint()
