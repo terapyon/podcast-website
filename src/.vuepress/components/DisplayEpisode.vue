@@ -9,10 +9,6 @@
         <DisplaySeason :season="page.frontmatter.season" :topic="page.frontmatter.number" />
       </div>
     </div>
-    <div class="tag-container">
-      <i class="fas fa-tags tag-icon"></i>
-      <div v-for="c in page.frontmatter.category" class="tag">{{c}}</div>
-    </div>
     <div
       v-if="page.frontmatter.description"
       class="article-description"

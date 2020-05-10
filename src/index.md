@@ -6,12 +6,12 @@
 
 # Podcastサービス
 
-登録は以下からお願いします。
+登録は以下のいずれかのサービスからお願いします。
 
-- [Anchor](https://anchor.fm/terapyon)
-- [Spotify](https://open.spotify.com/show/3F1JJCqbBzmNQhSibjvzKZ)
-- [Apple Podcasts](https://podcasts.apple.com/jp/podcast/manabu-terada/id1501371621)
-- [Google Podcasts](https://www.google.com/podcasts?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy8xNDQ4MGUwNC9wb2RjYXN0L3Jzcw==)
+- <a href="https://open.spotify.com/show/3F1JJCqbBzmNQhSibjvzKZ"><i class="fab fa-spotify"></i></a> [Spotify](https://open.spotify.com/show/3F1JJCqbBzmNQhSibjvzKZ) ・・Spotifyプレミアアカウントの方におすすめ
+- <a href="https://podcasts.apple.com/jp/podcast/manabu-terada/id1501371621"><i class="fas fa-podcast"></i></a>  [Apple Podcasts](https://podcasts.apple.com/jp/podcast/manabu-terada/id1501371621)・・iPhoneなどスマホに取り込みやすい
+- [Google Podcasts](https://www.google.com/podcasts?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy8xNDQ4MGUwNC9wb2RjYXN0L3Jzcw==)・・Googleのサービス
+- [Anchor](https://anchor.fm/terapyon) ・・このPodcastの配信ベースとなっているサービス(配信タイミングが一番早い)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/34b25bd1-eb5c-496b-8de1-8ed11acb0278/deploy-status)](https://app.netlify.com/sites/upbeat-cray-0519df/deploys)
 

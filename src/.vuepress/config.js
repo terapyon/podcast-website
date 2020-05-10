@@ -17,7 +17,11 @@ module.exports = {
         ['link', { rel: 'apple-touch-icon', href: '/icons/icon-152x152.png' }],
         // ['link', { rel: 'mask-icon', href: '/icons/safari-pinned-tab.svg', color: '#3eaf7c' }],
         ['meta', { name: 'msapplication-TileImage', content: '/icons/icon-144x144.png' }],
-        ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
+        ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
+        ['link', {
+            href: 'https://use.fontawesome.com/releases/v5.6.1/css/all.css',
+            rel: 'stylesheet'
+        }]
     ],
     serviceWorker: true,
     themeConfig: {
