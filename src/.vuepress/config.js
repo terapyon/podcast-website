@@ -19,6 +19,7 @@ module.exports = {
         ['meta', { name: 'msapplication-TileImage', content: '/icons/icon-144x144.png' }],
         ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
     ],
+    serviceWorker: true,
     themeConfig: {
         logo: '/favicon.jpg',
         nav: [
@@ -28,7 +29,14 @@ module.exports = {
             { text: 'Special', link: '/special/' }
         ],
         searchPlaceholder: 'Search...',
-        smoothScroll: true
+        smoothScroll: true,
+        serviceWorker: {
+            updatePopup: {
+                message: "新しいコンテンツが追加されました。",
+                buttonText: "更新",
+            }
+        },
+        lastUpdated: true
     },
     plugins: [
         ['@vuepress/google-analytics',
