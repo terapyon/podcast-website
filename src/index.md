@@ -20,6 +20,11 @@
 
 最近のエピソードを5件
 
+::: warning
+表示順が間違っている場合があります。現在調査中です。
+:::
+
+
 <RecentEpisodes :pages="this.$site.pages" :prefix="'/episodes/'" :limit="5"/>
 
 [すべて見る](/episodes/)

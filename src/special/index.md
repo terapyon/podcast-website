@@ -22,6 +22,10 @@ terapyonこと寺田が一人で読むとちょっと難しかったりすると
 第1段はEffective Python 読みこなしです。8回に分けて1章ごとに紹介していきます。
 
 
+::: warning
+表示順が間違っている場合があります。現在調査中です。
+:::
+
 
 <Seasons :pages="this.$site.pages" :prefix="'/episodes/'" :season="2"/>
 

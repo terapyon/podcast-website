@@ -44,7 +44,7 @@ export default {
   display: inline-block;
   text-align: left;
   vertical-align: top;
-  max-width: 590px;
+  width: 83%;
   margin: 10px 0;
 }
 .episode-date {
