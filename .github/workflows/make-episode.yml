@@ -23,6 +23,8 @@ jobs:
       id: make_script
       run: |
         python script/make_episode.py
+    - name: test-echo
+      run: echo ${steps.make_script.outputs}
     - name: commit-episode
       run: |
         git config user.name "github-bot"
