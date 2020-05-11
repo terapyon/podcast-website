@@ -22,9 +22,10 @@ jobs:
     - name: make-script
       id: make_script
       run: |
-        python script/make_episode.py
+      echo ::set-output name=status::python script/make_episode.py
     - name: test-echo
-      run: echo ${steps.make_script.outputs}
+      run: echo ${steps.make_script.outputs.status}
+      continue-on-error: true
     - name: commit-episode
       run: |
         git config user.name "github-bot"
@@ -32,5 +33,5 @@ jobs:
         git add -A
         git commit -a -m "Create a new episode content"
         git push ${REPO} master
-      if: steps.make_script.outputs == 'no'
+      if: steps.make_script.outputs.status == 'no'
 
