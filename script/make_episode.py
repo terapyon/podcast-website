@@ -193,11 +193,11 @@ def create_page(episode: Episode, path: Optional[Path] = None) -> None:
 if __name__ == "__main__":
     url = RSS_URL
     items = fetch_episode(url)
+    status = "no"
     for item in reversed(items):
         detail = get_detail(item)
         # print(detail)
         if not _check_episode_id(detail.id):
             create_page(detail)
-            print("success")
-        else:
-            print("no")
+            status = "success"
+    print(status)
