@@ -198,6 +198,6 @@ if __name__ == "__main__":
         # print(detail)
         if not _check_episode_id(detail.id):
             create_page(detail)
-            print("make episode")
+            print("success")
         else:
-            print("no episode")
+            print("no")

@@ -2,6 +2,7 @@ name: make-new-episode
 on:
   schedule:
     - cron: '5 8 * * *'
+  push:
 jobs:
   build:
     name: make-episode
@@ -19,6 +20,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r script-requirements.txt
     - name: make-script
+      id: make_script
       run: |
         python script/make_episode.py
     - name: commit-episode
@@ -28,4 +30,5 @@ jobs:
         git add -A
         git commit -a -m "Create a new episode content"
         git push ${REPO} master
-      continue-on-error: true
+      if: steps.make_script.outputs == 'success'
+
