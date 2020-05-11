@@ -22,7 +22,7 @@ jobs:
     - name: make-script
       id: make_script
       run: |
-      echo ::set-output name=status::python script/make_episode.py
+        echo ::set-output name=status::python script/make_episode.py
     - name: test-echo
       run: echo ${steps.make_script.outputs.status}
       continue-on-error: true
