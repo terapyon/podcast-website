@@ -28,3 +28,4 @@ jobs:
         git add -A
         git commit -a -m "Create a new episode content"
         git push ${REPO} master
+      continue-on-error: true
