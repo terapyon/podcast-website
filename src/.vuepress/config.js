@@ -23,7 +23,6 @@ module.exports = {
             rel: 'stylesheet'
         }]
     ],
-    serviceWorker: true,
     themeConfig: {
         logo: '/favicon.jpg',
         nav: [
@@ -50,7 +49,7 @@ module.exports = {
         ['@vuepress/pwa',
             {
                 serviceWorker: true,
-                updatePopup: false
+                updatePopup: true
             }
         ]
     ]
