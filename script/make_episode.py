@@ -48,17 +48,9 @@ CONTENT_MAIN = """# {title}
 """
 
 CONTENT_AUDIO = """
-<a-player 
-:options="{{
-  audio: [
-    {{
-        name: '{title}',
-        artist: 'terapyon',
-        url: '{audio_url}',
-        cover: '{image_href}'
-    }}
-    ]
-}}"
+<Player title="{title}" 
+  audio_url="{audio_url}" 
+  image_href="{image_href}" 
 />
 """
 
