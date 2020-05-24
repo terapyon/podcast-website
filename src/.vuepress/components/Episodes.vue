@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import moment from "moment";
 export default {
   name: "Articles",
   props: ["pages", "prefix"],
@@ -14,6 +15,9 @@ export default {
     filteredPages() {
       return this.pages
         .filter(page => page.path.includes(this.prefix || ""))
+        .sort(function(a, b) {
+          return moment(a.frontmatter.date) - moment(b.frontmatter.date);
+        })
         .reverse();
     }
   }

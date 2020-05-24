@@ -13,10 +13,6 @@ meta:
 
 エピソード一覧(最新順)
 
-::: warning
-表示順が間違っている場合があります。現在調査中です。
-:::
-
 
 <Episodes :pages="this.$site.pages" :prefix="this.$page.path"/>
 

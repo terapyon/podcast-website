@@ -6,6 +6,7 @@
   </div>
 </template>
 <script>
+import moment from "moment";
 export default {
   name: "Articles",
   props: ["pages", "prefix", "season"],
@@ -15,8 +16,7 @@ export default {
         .filter(page => page.path.includes(this.prefix || ""))
         .filter(page => page.frontmatter.season == this.season || 0)
         .sort(function(a, b) {
-          //   console.log(a.path < b.path);
-          return a.path < b.path;
+          return moment(a.frontmatter.date) - moment(b.frontmatter.date);
         });
     }
   }

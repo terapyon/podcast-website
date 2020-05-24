@@ -15,7 +15,9 @@
   </div>
   <div v-else>
     <button v-on:click="showPlayer()" class="play-button">
-      <i class="fas fa-play-circle"></i>Play
+      <i class="fas fa-play-circle"></i>
+      <span class="button-text">Play</span>
+      <img :src="image_href" width="30px" />
     </button>
   </div>
 </template>
@@ -59,5 +61,10 @@ export default {
 
 .play-button:active {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.button-text {
+  vertical-align: center;
+  margin: 0 10px;
 }
 </style>
