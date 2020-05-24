@@ -45,17 +45,18 @@ export default {
   display: inline-block;
   padding: 0.25em 0.5em;
   text-decoration: none;
-  color: #fff;
-  background: #307df8;
+  color: #000;
+  background: #a5c7fd;
   border-radius: 4px;
   box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2),
     inset 0 -2px 0 rgba(0, 0, 0, 0.05);
   font-weight: bold;
-  border: solid 2px #0004d2;
-  width: 50%;
+  border: solid 2px #888;
+  width: 100%;
   height: 66px;
   text-align: center;
   margin: 5px 0;
+  color: #888;
   cursor: pointer;
 }
 
@@ -64,7 +65,9 @@ export default {
 }
 
 .button-text {
+  display: inline-block;
   vertical-align: center;
   margin: 0 10px;
+  font-size: 120%;
 }
 </style>
