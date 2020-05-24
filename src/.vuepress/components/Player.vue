@@ -45,23 +45,21 @@ export default {
   display: inline-block;
   padding: 0.25em 0.5em;
   text-decoration: none;
-  color: #000;
-  background: #a5c7fd;
-  border-radius: 4px;
-  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  color: #fff;
+  background: #0083be;
+  border-radius: 1px;
+  border: 1px dashed #fff;
+  box-shadow: 0 0 0 2px #0083be;
   font-weight: bold;
-  border: solid 2px #888;
   width: 100%;
   height: 66px;
   text-align: center;
   margin: 5px 0;
-  color: #888;
   cursor: pointer;
 }
 
-.play-button:active {
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+.play-button:hover {
+  box-shadow: 0 0 4px #0083be;
 }
 
 .button-text {
