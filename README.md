@@ -41,6 +41,12 @@ $ yarn dev
 yarn build
 ```
 
+Vuepress
+
+```
+$ yarn upgrade vuepress
+```
+
 # 参考資料
 
 - https://vuepress.vuejs.org/
