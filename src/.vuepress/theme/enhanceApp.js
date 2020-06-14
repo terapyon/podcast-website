@@ -14,4 +14,5 @@ export default ({
     siteData
 }) => {
     Vue.use(Vuetify)
+    options.vuetify = new Vuetify({})
 }

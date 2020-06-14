@@ -24,6 +24,7 @@ module.exports = {
         }],
         ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }]
     ],
+    // theme: require.resolve('../../../'),
     themeConfig: {
         logo: '/favicon.jpg',
         nav: [
@@ -40,7 +41,7 @@ module.exports = {
                 buttonText: "更新",
             }
         },
-        lastUpdated: true
+        lastUpdated: false
     },
     plugins: [
         ['@vuepress/google-analytics',
