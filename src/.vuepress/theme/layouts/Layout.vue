@@ -7,9 +7,20 @@
       <v-btn text rounded>ホーム</v-btn>
       <v-btn text rounded>ログイン</v-btn>
     </v-app-bar>-->
-    <div>
-      <Content />
-    </div>
+    <v-main>
+      <v-card width="1000" class="mx-auto mt-5">
+        <Content />
+      </v-card>
+    </v-main>
+    <v-footer color="primary lighten-1" padless>
+      <v-row justify="center" no-gutters>
+        <v-btn v-for="link in links" :key="link" color="white" text rounded class="my-2">{{ link }}</v-btn>
+        <v-col class="primary lighten-2 py-4 text-center white--text" cols="12">
+          {{ new Date().getFullYear() }} —
+          <strong>terapyon</strong>
+        </v-col>
+      </v-row>
+    </v-footer>
   </v-app>
 </template>
 <script>
@@ -40,22 +51,6 @@ export default {
         this.$themeLocaleConfig.nav
       );
     },
-    shouldShowSidebar() {
-      const { frontmatter } = this.$page;
-      return (
-        !frontmatter.home &&
-        frontmatter.sidebar !== false &&
-        this.sidebarItems.length
-      );
-    },
-    sidebarItems() {
-      return resolveSidebarItems(
-        this.$page,
-        this.$page.regularPath,
-        this.$site,
-        this.$localePath
-      );
-    },
     pageClasses() {
       const userPageClass = this.$page.frontmatter.pageClass;
       return [
@@ -68,16 +63,7 @@ export default {
       ];
     }
   },
-  mounted() {
-    this.$router.afterEach(() => {
-      this.isSidebarOpen = false;
-    });
-  },
   methods: {
-    toggleSidebar(to) {
-      this.isSidebarOpen = typeof to === "boolean" ? to : !this.isSidebarOpen;
-      this.$emit("toggle-sidebar", this.isSidebarOpen);
-    },
     // side swipe
     onTouchStart(e) {
       this.touchStart = {
