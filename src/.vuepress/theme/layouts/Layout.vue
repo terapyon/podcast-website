@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
+    <Navbar v-if="shouldShowNavbar" />
     <!-- <v-app-bar app color="primary" dark>
       <v-toolbar-title>サイト名</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -70,18 +70,21 @@ export default {
         x: e.changedTouches[0].clientX,
         y: e.changedTouches[0].clientY
       };
-    },
-    onTouchEnd(e) {
-      const dx = e.changedTouches[0].clientX - this.touchStart.x;
-      const dy = e.changedTouches[0].clientY - this.touchStart.y;
-      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-        if (dx > 0 && this.touchStart.x <= 80) {
-          this.toggleSidebar(true);
-        } else {
-          this.toggleSidebar(false);
-        }
-      }
     }
+    // onTouchEnd(e) {
+    //   const dx = e.changedTouches[0].clientX - this.touchStart.x;
+    //   const dy = e.changedTouches[0].clientY - this.touchStart.y;
+    //   if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+    //     if (dx > 0 && this.touchStart.x <= 80) {
+    //       this.toggleSidebar(true);
+    //     } else {
+    //       this.toggleSidebar(false);
+    //     }
+    //   }
+    // }
   }
 };
 </script>
+<style lang="stylus">
+@import '../styles/theme.styl';
+</style>
