@@ -1,12 +1,13 @@
 <template>
   <v-app-bar app color="primary" dark>
     <RouterLink :to="$localePath" class="home-link">
-      <!-- <img
-          v-if="$site.themeConfig.logo"
-          class="logo"
-          :src="$withBase($site.themeConfig.logo)"
-          :alt="$siteTitle"
-      />-->
+      <img
+        v-if="$site.themeConfig.logo"
+        class="logo"
+        width="50px"
+        :src="$withBase($site.themeConfig.logo)"
+        :alt="$siteTitle"
+      />
       <v-toolbar-title
         v-if="$siteTitle"
         ref="siteName"
@@ -15,12 +16,9 @@
       >{{ $siteTitle }}</v-toolbar-title>
     </RouterLink>
     <v-spacer></v-spacer>
-    <div
-      class="links"
-      :style="linksWrapMaxWidth ? {
+    <div :style="linksWrapMaxWidth ? {
         'max-width': linksWrapMaxWidth + 'px'
-      } : {}"
-    >
+      } : {}">
       <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
       <SearchBox
         v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"
@@ -107,7 +105,7 @@ $navbar-horizontal-padding = 1.5rem;
     height: $navbarHeight - 1.4rem;
     min-width: $navbarHeight - 1.4rem;
     margin-right: 0.8rem;
-    vertical-align: top;
+    vertical-align: middle;
   }
 
   .site-name {

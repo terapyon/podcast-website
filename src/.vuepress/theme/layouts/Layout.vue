@@ -1,35 +1,25 @@
 <template>
   <v-app>
     <Navbar v-if="shouldShowNavbar" />
-    <!-- <v-app-bar app color="primary" dark>
-      <v-toolbar-title>サイト名</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn text rounded>ホーム</v-btn>
-      <v-btn text rounded>ログイン</v-btn>
-    </v-app-bar>-->
     <v-main>
-      <v-card width="1000" class="mx-auto mt-5">
-        <Content />
-      </v-card>
+      <component class="main-content" :is="layout" />
     </v-main>
-    <v-footer color="primary lighten-1" padless>
-      <v-row justify="center" no-gutters>
-        <v-btn v-for="link in links" :key="link" color="white" text rounded class="my-2">{{ link }}</v-btn>
-        <v-col class="primary lighten-2 py-4 text-center white--text" cols="12">
-          {{ new Date().getFullYear() }} —
-          <strong>terapyon</strong>
-        </v-col>
-      </v-row>
-    </v-footer>
+    <Footer />
   </v-app>
 </template>
 <script>
+import Home from "./Home.vue";
+import Page from "./Page.vue";
 import Navbar from "@theme/components/Navbar.vue";
+import Footer from "@theme/components/Footer.vue";
 
 export default {
   name: "Layout",
   components: {
-    Navbar
+    Home,
+    Page,
+    Navbar,
+    Footer
   },
   data() {
     return {
@@ -37,6 +27,14 @@ export default {
     };
   },
   computed: {
+    layout() {
+      const { path } = this.$page;
+      if (path === "/") {
+        return "Home";
+      } else {
+        return "page";
+      }
+    },
     shouldShowNavbar() {
       const { themeConfig } = this.$site;
       const { frontmatter } = this.$page;

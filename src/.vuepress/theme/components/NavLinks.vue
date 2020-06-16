@@ -104,7 +104,7 @@ export default {
 };
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scope>
 .nav-links {
   display: inline-block;
 

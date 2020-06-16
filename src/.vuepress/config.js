@@ -40,12 +40,6 @@ module.exports = {
         ],
         searchPlaceholder: 'Search...',
         smoothScroll: true,
-        serviceWorker: {
-            updatePopup: {
-                message: "新しいコンテンツが追加されました。",
-                buttonText: "更新",
-            }
-        },
         lastUpdated: false
     },
     plugins: [
@@ -56,7 +50,11 @@ module.exports = {
         ['@vuepress/pwa',
             {
                 serviceWorker: true,
-                updatePopup: true
+                popupComponent: 'MySWUpdatePopup',
+                updatePopup: {
+                    message: "新しいコンテンツが追加されました。",
+                    buttonText: "更新",
+                }
             }
         ]
     ]
