@@ -14,5 +14,19 @@ export default ({
     siteData
 }) => {
     Vue.use(Vuetify)
-    options.vuetify = new Vuetify({})
+    options.vuetify = new Vuetify({
+        icons: {
+            iconfont: 'mdi',
+        },
+        themes: {
+            light: {
+                primary: '#41B883'
+            },
+            dark: {
+                primary: '#34495E',
+                anchor: '#fff'
+
+            }
+        }
+    })
 }

@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div v-for="page in filteredPages" class="box-episode" v-if="!page.frontmatter.exclude">
+    <div
+      v-for="page in filteredPages"
+      :key="page.id"
+      class="box-episode"
+      v-if="!page.frontmatter.exclude"
+    >
       <DisplayEpisode :page="page" />
     </div>
   </div>

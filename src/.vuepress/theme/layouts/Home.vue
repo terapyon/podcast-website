@@ -12,7 +12,7 @@
       <v-col cols="12" md="5">
         <v-card :shaped="true">
           <v-card-text>
-            <div>ここは Manabu TERADA が個人で行っている Podcast の Web サイトです。</div>
+            <div>いずれかのサービスでサブスクライブ</div>
             <p class="display-1 text--primary">Podcastサービス</p>
             <p>登録は以下のいずれかのサービスからお願いします。</p>
           </v-card-text>
@@ -27,8 +27,36 @@
         <Content />
       </v-col>
     </v-row>
+    <v-row v-intersect.once="showMoreContents">
+      <v-col>
+        <h2>最近のエピソード</h2>最近のエピソードを5件
+      </v-col>
+    </v-row>
+    <v-row v-if="loadNewContents">
+      <v-col>
+        <RecentEpisodes :pages="this.$site.pages" :prefix="'/episodes/'" :limit="5" />
+      </v-col>
+    </v-row>
+    <a href="/episodes/">すべて見る</a>
   </v-container>
 </template>
+<script>
+export default {
+  name: "Home",
+
+  data() {
+    return {
+      loadNewContents: false
+    };
+  },
+  methods: {
+    showMoreContents(entries) {
+      console.log(entries[0].isIntersecting);
+      this.loadNewContents = entries[0].isIntersecting;
+    }
+  }
+};
+</script>
 <style scoped>
 h1 {
   font-size: 3em;

@@ -1,6 +1,3 @@
-# terapyon channel podcast
-
-![terapyon channel メインイメージ](/terada-uspycon2019.jpg)
 
 ここは Manabu TERADA が個人で行っている Podcast の Web サイトです。
 
@@ -16,11 +13,3 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/34b25bd1-eb5c-496b-8de1-8ed11acb0278/deploy-status)](https://app.netlify.com/sites/upbeat-cray-0519df/deploys)
 
 
-# 最近のエピソード
-
-最近のエピソードを5件
-
-
-<RecentEpisodes :pages="this.$site.pages" :prefix="'/episodes/'" :limit="5"/>
-
-[すべて見る](/episodes/)
