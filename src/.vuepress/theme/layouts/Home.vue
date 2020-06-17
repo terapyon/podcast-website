@@ -27,17 +27,17 @@
         <Content />
       </v-col>
     </v-row>
-    <v-row v-intersect.once="showMoreContents">
+    <v-row v-intersect="showMoreContents">
       <v-col>
         <h2>最近のエピソード</h2>最近のエピソードを5件
       </v-col>
     </v-row>
     <v-row v-if="loadNewContents">
       <v-col>
-        <RecentEpisodes :pages="this.$site.pages" :prefix="'/episodes/'" :limit="5" />
+        <RecentEpisodes :pages="this.$site.pages" :prefix="'/episodes/'" :limit="limitNumber" />
       </v-col>
     </v-row>
-    <a href="/episodes/">すべて見る</a>
+    <a href="/episodes/" v-intersect="addContents">すべて見る</a>
   </v-container>
 </template>
 <script>
@@ -46,13 +46,20 @@ export default {
 
   data() {
     return {
-      loadNewContents: false
+      loadNewContents: false,
+      limitNumber: 5
     };
   },
   methods: {
     showMoreContents(entries) {
-      console.log(entries[0].isIntersecting);
-      this.loadNewContents = entries[0].isIntersecting;
+      //   console.log(entries[0].isIntersecting);
+      if (!this.loadNewContents) {
+        this.loadNewContents = entries[0].isIntersecting;
+      }
+    },
+    addContents(entries) {
+      //   console.log(this.limitNumber);
+      this.limitNumber += 5;
     }
   }
 };
