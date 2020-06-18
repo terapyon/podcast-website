@@ -1,10 +1,12 @@
 <template>
-  <v-app>
+  <v-app class="overflow-hidden">
     <Navbar v-if="shouldShowNavbar" />
+
     <v-main>
-      <component class="main-content" :is="layout" />
+      <component id="scrolling-techniques" class="overflow-y-auto" :is="layout" />
     </v-main>
     <Footer />
+    <!-- </v-sheet> -->
   </v-app>
 </template>
 <script>

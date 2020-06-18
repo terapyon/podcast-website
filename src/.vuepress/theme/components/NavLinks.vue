@@ -1,18 +1,12 @@
 <template>
   <nav v-if="userLinks.length || repoLink" class="nav-links">
     <!-- user links -->
-    <div v-for="item in userLinks" :key="item.link" class="nav-item">
+    <v-toolbar-items v-for="item in userLinks" :key="item.link" class="nav-item">
       <!-- <DropdownLink v-if="item.type === 'links'" :item="item" /> -->
       <v-btn text rounded>
         <NavLink :item="item" />
       </v-btn>
-    </div>
-
-    <!-- repo link -->
-    <a v-if="repoLink" :href="repoLink" class="repo-link" target="_blank" rel="noopener noreferrer">
-      {{ repoLabel }}
-      <OutboundLink />
-    </a>
+    </v-toolbar-items>
     <v-btn text rounded @click="toggleTheme">Toggle Theme</v-btn>
   </nav>
 </template>
@@ -121,6 +115,7 @@ export default {
 
     &:hover, &.router-link-active {
       color: $accentColor;
+      text-decoration: underline;
     }
   }
 
