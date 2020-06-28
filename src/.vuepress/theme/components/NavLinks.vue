@@ -1,13 +1,10 @@
 <template>
   <nav v-if="userLinks.length || repoLink" class="nav-links">
-    <!-- user links -->
-    <v-toolbar-items v-for="item in userLinks" :key="item.link" class="nav-item">
-      <!-- <DropdownLink v-if="item.type === 'links'" :item="item" /> -->
-      <v-btn text rounded>
+    <v-list-item v-for="item in userLinks" :key="item.link">
+      <v-list-item-title text rounded>
         <NavLink :item="item" />
-      </v-btn>
-    </v-toolbar-items>
-    <v-btn text rounded @click="toggleTheme">Toggle Theme</v-btn>
+      </v-list-item-title>
+    </v-list-item>
   </nav>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
   <v-app class="overflow-hidden">
-    <Navbar v-if="shouldShowNavbar" />
+    <Navbar />
 
-    <v-main>
+    <v-main id="main-content">
       <component id="scrolling-techniques" class="overflow-y-auto" :is="layout" />
     </v-main>
     <Footer />
@@ -36,32 +36,32 @@ export default {
       } else {
         return "page";
       }
-    },
-    shouldShowNavbar() {
-      const { themeConfig } = this.$site;
-      const { frontmatter } = this.$page;
-      if (frontmatter.navbar === false || themeConfig.navbar === false) {
-        return false;
-      }
-      return (
-        this.$title ||
-        themeConfig.logo ||
-        themeConfig.repo ||
-        themeConfig.nav ||
-        this.$themeLocaleConfig.nav
-      );
-    },
-    pageClasses() {
-      const userPageClass = this.$page.frontmatter.pageClass;
-      return [
-        {
-          "no-navbar": !this.shouldShowNavbar,
-          "sidebar-open": this.isSidebarOpen,
-          "no-sidebar": !this.shouldShowSidebar
-        },
-        userPageClass
-      ];
     }
+    // shouldShowNavbar() {
+    //   const { themeConfig } = this.$site;
+    //   const { frontmatter } = this.$page;
+    //   if (frontmatter.navbar === false || themeConfig.navbar === false) {
+    //     return false;
+    //   }
+    //   return (
+    //     this.$title ||
+    //     themeConfig.logo ||
+    //     themeConfig.repo ||
+    //     themeConfig.nav ||
+    //     this.$themeLocaleConfig.nav
+    //   );
+    // },
+    // pageClasses() {
+    //   const userPageClass = this.$page.frontmatter.pageClass;
+    //   return [
+    //     {
+    //       "no-navbar": !this.shouldShowNavbar,
+    //       "sidebar-open": this.isSidebarOpen,
+    //       "no-sidebar": !this.shouldShowSidebar
+    //     },
+    //     userPageClass
+    //   ];
+    // }
   },
   methods: {
     // side swipe
@@ -85,6 +85,4 @@ export default {
   }
 };
 </script>
-<style lang="stylus">
-@import '../styles/theme.styl';
-</style>
+<style lang="stylus"></style>

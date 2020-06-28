@@ -1,61 +1,58 @@
 <template>
-  <v-app-bar
-    :collapse="!collapseOnScroll"
-    :collapse-on-scroll="collapseOnScroll"
-    app
-    color="primary"
-    dark
-  >
-    <v-app-bar-nav-icon @click="drawer = true">
-      <!-- <NavLinks class="can-hide" /> -->
-    </v-app-bar-nav-icon>
+  <v-card>
+    <v-app-bar
+      :collapse="!collapseOnScroll"
+      :collapse-on-scroll="collapseOnScroll"
+      app
+      color="primary accent-4"
+      dark
+    >
+      <!-- <v-app-bar-nav-icon @click="drawer = true" class="main-menu"></v-app-bar-nav-icon> -->
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer">></v-app-bar-nav-icon>
 
-    <RouterLink :to="$localePath">
-      <v-row>
-        <v-col>
-          <v-img
-            v-if="$site.themeConfig.logo"
-            class="logo"
-            width="50px"
-            :src="$withBase($site.themeConfig.logo)"
-            :alt="$siteTitle"
-          />
-        </v-col>
-        <v-toolbar-title>
-          <v-col class="site-title">{{ $siteTitle }}</v-col>
-        </v-toolbar-title>
-      </v-row>
-    </RouterLink>
+      <v-img
+        v-if="!collapseOnScroll"
+        class="logo"
+        width="50px"
+        :src="$withBase($site.themeConfig.logo)"
+        :alt="$siteTitle"
+      />
 
-    <v-spacer></v-spacer>
-    <!-- <SearchBox v-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false" /> -->
-    <!-- <NavLinks /> -->
-    <!-- <v-btn v-if="collapseOnScroll" text rounded @click="toggleTheme">Toggle Theme</v-btn> -->
-    <v-navigation-drawer v-model="drawer" fixed temporary>
+      <v-toolbar-title>
+        <RouterLink :to="$localePath">
+          <v-row>
+            <v-col>
+              <v-img
+                v-if="$site.themeConfig.logo"
+                class="logo"
+                width="50px"
+                :src="$withBase($site.themeConfig.logo)"
+                :alt="$siteTitle"
+              />
+            </v-col>
+            <v-col class="site-title">{{ $siteTitle }}</v-col>
+          </v-row>
+        </RouterLink>
+      </v-toolbar-title>
+      <!-- <v-spacer></v-spacer> -->
+      <!-- <SearchBox v-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false" /> -->
+      <!-- <v-toolbar-items>
+      <NavLinks />
+      </v-toolbar-items>-->
+      <!-- <v-btn v-if="collapseOnScroll" text rounded @click="toggleTheme">Toggle Theme</v-btn> -->
+
+      <v-spacer></v-spacer>
+
+      <v-checkbox v-model="collapseOnScroll" color="white" hide-details></v-checkbox>
+    </v-app-bar>
+    <v-navigation-drawer v-model="drawer" app color="blue" dark>
       <v-list nav dense>
-        <v-list-item-group>
-          <v-list-item>
-            <v-list-item-title>HOME</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-title>ABOUT</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-title>WORK</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-title>SERVICE</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-title>BLOG</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-title>ACCESS</v-list-item-title>
-          </v-list-item>
+        <v-list-item-group v-model="group" active-class="deep-purple--text text--accent-4">
+          <NavLinks />
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-  </v-app-bar>
+  </v-card>
 </template>
 
 <script>
@@ -74,8 +71,15 @@ export default {
     return {
       linksWrapMaxWidth: null,
       collapseOnScroll: true,
-      drawer: false
+      drawer: false,
+      group: null
     };
+  },
+
+  watch: {
+    group() {
+      this.drawer = false;
+    }
   },
 
   computed: {},
@@ -88,4 +92,9 @@ export default {
   color: #ffff;
   font-size: 1.5em;
 }
+/* .main-menu {
+  color: #fff;
+  z-index: 100;
+  border-color: #fff;
+} */
 </style>
