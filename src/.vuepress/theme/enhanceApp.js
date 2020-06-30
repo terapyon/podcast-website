@@ -4,7 +4,8 @@ import Vuetify from 'vuetify'
 // import 'vuetify.min.css'
 // import Vuetify from '../../vuetify'
 import '../../../node_modules/vuetify/dist/vuetify.min.css'
-// import '../../node_modules/@mdi/font/css/materialdesignicons.css'
+import '@mdi/font/css/materialdesignicons.css'
+import VueSocialSharing from 'vue-social-sharing'
 
 
 export default ({
@@ -14,6 +15,7 @@ export default ({
     siteData
 }) => {
     Vue.use(Vuetify)
+    Vue.use(VueSocialSharing)
     options.vuetify = new Vuetify({
         icons: {
             iconfont: 'mdi',

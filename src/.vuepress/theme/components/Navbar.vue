@@ -7,8 +7,7 @@
       color="primary accent-4"
       dark
     >
-      <!-- <v-app-bar-nav-icon @click="drawer = true" class="main-menu"></v-app-bar-nav-icon> -->
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer">></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="material-icons"></v-app-bar-nav-icon>
 
       <v-img
         v-if="!collapseOnScroll"
@@ -42,7 +41,7 @@
       <!-- <v-btn v-if="collapseOnScroll" text rounded @click="toggleTheme">Toggle Theme</v-btn> -->
 
       <v-spacer></v-spacer>
-
+      <SearchBox />
       <v-checkbox v-model="collapseOnScroll" color="white" hide-details></v-checkbox>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app color="blue" dark>
@@ -92,9 +91,4 @@ export default {
   color: #ffff;
   font-size: 1.5em;
 }
-/* .main-menu {
-  color: #fff;
-  z-index: 100;
-  border-color: #fff;
-} */
 </style>
