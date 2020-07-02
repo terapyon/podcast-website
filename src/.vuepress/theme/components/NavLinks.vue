@@ -1,17 +1,15 @@
 <template>
   <nav v-if="userLinks.length || repoLink" class="nav-links">
-    <v-list-item v-for="item in userLinks" :key="item.link">
-      <v-list-item-title text rounded>
-        <NavLink :item="item" />
-      </v-list-item-title>
-    </v-list-item>
+    <v-list v-for="item in userLinks" :key="item.link">
+      <NavLink :item="item" />
+    </v-list>
   </nav>
 </template>
 
 <script>
 // import DropdownLink from "@vuepress/theme-default/components/DropdownLink";
 import { resolveNavLinkItem } from "@vuepress/theme-default/util";
-import NavLink from "@vuepress/theme-default/components/NavLink";
+import NavLink from "./NavLink";
 
 export default {
   name: "NavLinks",
@@ -109,11 +107,7 @@ export default {
   a {
     line-height: 1.4rem;
     color: inherit;
-
-    &:hover, &.router-link-active {
-      color: $accentColor;
-      text-decoration: underline;
-    }
+    text-decoration: none;
   }
 
   .nav-item {
@@ -130,6 +124,10 @@ export default {
   .repo-link {
     margin-left: 1.5rem;
   }
+
+  .router-link-active {
+    color: lightblue;
+  }
 }
 
 @media (max-width: $MQMobile) {
@@ -141,12 +139,6 @@ export default {
 }
 
 @media (min-width: $MQMobile) {
-  .nav-links a {
-    &:hover, &.router-link-active {
-      color: $textColor;
-    }
-  }
-
   .nav-item > a:not(.external) {
     &:hover, &.router-link-active {
       margin-bottom: -2px;
