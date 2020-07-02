@@ -1,32 +1,42 @@
 <template>
   <v-container>
-    <v-col>
-      <ShareNetwork
-        network="facebook"
-        :url="shareUrl"
-        title="'Podcast terapyon channel ' + this.$page.title + ' を共有'"
-        hashtags="terapyon_channel"
-      >Share on Facebook</ShareNetwork>
-    </v-col>
-    <v-col>
-      <ShareNetwork
-        network="twitter"
-        :url="shareUrl"
-        :title="'Podcast terapyon channel ' + this.$page.title + ' を共有'"
-        hashtags="terapyon_channel"
-      >Share on twitter</ShareNetwork>
-    </v-col>
+    <v-row>
+      <v-spacer></v-spacer>
+      <v-col cols="auto">
+        <ShareNetwork
+          network="facebook"
+          :url="shareUrl"
+          :title="shareTitle"
+          hashtags="terapyon_channel"
+        >
+          <i class="fab fa-facebook-square"></i>
+        </ShareNetwork>
+      </v-col>
+      <v-col cols="auto">
+        <ShareNetwork
+          network="twitter"
+          :url="shareUrl"
+          :title="shareTitle"
+          hashtags="terapyon_channel"
+        >
+          <i class="fab fa-twitter-square"></i>
+        </ShareNetwork>
+      </v-col>
+      <v-spacer></v-spacer>
+    </v-row>
   </v-container>
 </template>
 <script>
 export default {
   name: "ShareLink",
 
-  data() {
-    return {
-      // shareTitle: "Podcast terapyon channel " + this.$page.title + " を共有"
-      shareUrl: window.location.toString()
-    };
+  computed: {
+    shareTitle() {
+      return "Podcast terapyon channel 「" + this.$page.title + "」を共有";
+    },
+    shareUrl() {
+      return window.location.toString();
+    }
   }
 };
 </script>
