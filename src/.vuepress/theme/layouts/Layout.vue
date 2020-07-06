@@ -11,6 +11,7 @@
 </template>
 <script>
 import Home from "./Home.vue";
+import Episode from "./Episode";
 import Page from "./Page.vue";
 import Navbar from "@theme/components/Navbar.vue";
 import Footer from "@theme/components/Footer.vue";
@@ -19,6 +20,7 @@ export default {
   name: "Layout",
   components: {
     Home,
+    Episode,
     Page,
     Navbar,
     Footer
@@ -33,8 +35,10 @@ export default {
       const { path } = this.$page;
       if (path === "/") {
         return "Home";
+      } else if (path.match(/\/episodes\/\d+\.html$/)) {
+        return "Episode";
       } else {
-        return "page";
+        return "Page";
       }
     }
     // shouldShowNavbar() {
