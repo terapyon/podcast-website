@@ -27,14 +27,14 @@ export default {
 };
 </script>
 
-<style>
+<style  lang="stylus" scoped>
 #display-date {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 8px 5px;
-  width: 100px;
+  width: 100%;
   line-height: 1;
   text-align: center;
   color: #fff;
@@ -47,30 +47,43 @@ export default {
 .hyphen {
   display: none;
 }
+
 .date-year {
   display: block;
 }
+
 .date-year {
   font-size: 14px;
 }
+
 .date-day {
   display: inline-block;
   font-weight: bold;
 }
+
 .date-month {
   display: inline-block;
   font-weight: bold;
 }
+
 /* .date-month::after {
   content: "/";
 } */
 .date-week {
   font-size: 10px;
 }
+
 .date-week::before {
-  content: "(";
+  content: '(';
 }
+
 .date-week::after {
-  content: ")";
+  content: ')';
+}
+
+@media (max-width: $MQNarrow) {
+  #display-date {
+    width: 30%;
+  }
 }
 </style>

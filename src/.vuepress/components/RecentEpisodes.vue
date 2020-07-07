@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container>
     <v-row
       v-for="page in filteredPages"
       :key="page.id"
@@ -8,7 +8,7 @@
     >
       <DisplayEpisode :page="page" />
     </v-row>
-  </div>
+  </v-container>
 </template>
 <script>
 import moment from "moment";
