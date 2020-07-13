@@ -3,17 +3,20 @@
     <v-row class="siblings">
       <v-col cols="12" sm="4">
         <v-btn v-show="isPrevious" text rounded small>
-          <RouterLink :to="previous.path">&lt; {{shortTitle(previous.title)}}</RouterLink>
+          <RouterLink
+            :to="previous.path"
+            :title="previous.title"
+          >&lt; {{shortTitle(previous.title)}}</RouterLink>
         </v-btn>
       </v-col>
       <v-col cols="12" sm="4">
         <v-btn text rounded small>
-          <RouterLink to="/episodes/">Episode List</RouterLink>
+          <RouterLink to="/episodes/" title="All Episode List">Episode List</RouterLink>
         </v-btn>
       </v-col>
       <v-col cols="12" sm="4">
         <v-btn v-show="isNext" text rounded small>
-          <RouterLink :to="next.path">{{shortTitle(next.title)}} &gt;</RouterLink>
+          <RouterLink :to="next.path" :title="next.title">{{shortTitle(next.title)}} &gt;</RouterLink>
         </v-btn>
       </v-col>
     </v-row>

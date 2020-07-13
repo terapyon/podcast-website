@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="terapyon-podcast-content">
     <Navbar />
     <v-main id="main-content">
       <component :is="layout" />
