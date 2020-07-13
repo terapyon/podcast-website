@@ -1,24 +1,34 @@
 <template>
-  <div>
-    <div class="episode-title">
-      <h3 class="article-title">
-        <router-link :to="page.path">{{page.title || 'No Title'}}</router-link>
-      </h3>
-      <div class="episode-date">
+  <v-card>
+    <v-row>
+      <v-col cols="12" md="10">
+        <h3>
+          <router-link :to="page.path">{{page.title || 'No Title'}}</router-link>
+        </h3>
+      </v-col>
+      <v-col cols="12" md="2" class="episode-date">
         <DisplayDate :dateStr="page.frontmatter.date"></DisplayDate>
         <DisplaySeason :season="page.frontmatter.season" :topic="page.frontmatter.number" />
-      </div>
-    </div>
-    <div
-      v-if="page.frontmatter.description"
-      class="article-description"
-    >{{page.frontmatter.description}}</div>
-    <Player
-      :title="page.title"
-      :audio_url="page.frontmatter.audio_url"
-      :image_href="page.frontmatter.image_href"
-    />
-  </div>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <div
+          v-if="page.frontmatter.description"
+          class="article-description"
+        >{{page.frontmatter.description}}...</div>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <Player
+          :title="page.title"
+          :audio_url="page.frontmatter.audio_url"
+          :image_href="page.frontmatter.image_href"
+        />
+      </v-col>
+    </v-row>
+  </v-card>
 </template>
 
 <script>
@@ -40,18 +50,13 @@ export default {
 </script>
 
 <style scoped>
-.article-title {
-  display: inline-block;
-  text-align: left;
-  vertical-align: top;
-  width: 83%;
-  margin: 10px 0;
+h3 {
+  font-size: 1.5rem;
+  padding: 0 15px;
 }
-.episode-date {
-  display: inline-block;
-  text-align: right;
+.article-description {
+  padding: 0 10px;
 }
-
 .play-button {
   position: relative;
   display: inline-block;

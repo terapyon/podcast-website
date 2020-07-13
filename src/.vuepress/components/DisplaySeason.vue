@@ -20,14 +20,14 @@ export default {
 };
 </script>
 
-<style>
+<style  lang="stylus" scoped>
 #display-season {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 10px 0 10px 0px;
   padding: 8px 5px;
-  width: 100px;
+  width: 100%;
   line-height: 1;
   text-align: center;
   color: #fff;
@@ -36,15 +36,23 @@ export default {
   border: 1px dashed #fff;
   box-shadow: 0 0 0 4px #01c211;
 }
-.season,
-.topic {
+
+.season, .topic {
   display: inline;
 }
+
 .label {
   font-size: 8px;
 }
+
 .number {
   font-size: 14px;
   font-weight: bold;
+}
+
+@media (max-width: $MQNarrow) {
+  #display-season {
+    width: 30%;
+  }
 }
 </style>

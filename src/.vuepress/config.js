@@ -21,8 +21,15 @@ module.exports = {
         ['link', {
             href: 'https://use.fontawesome.com/releases/v5.6.1/css/all.css',
             rel: 'stylesheet'
-        }]
+        }],
+        ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }]
     ],
+    // theme: require.resolve('../../../'),
+    locales: {
+        '/': {
+            lang: 'ja-JP'
+        }
+    },
     themeConfig: {
         logo: '/favicon.jpg',
         nav: [
@@ -33,13 +40,7 @@ module.exports = {
         ],
         searchPlaceholder: 'Search...',
         smoothScroll: true,
-        serviceWorker: {
-            updatePopup: {
-                message: "新しいコンテンツが追加されました。",
-                buttonText: "更新",
-            }
-        },
-        lastUpdated: true
+        lastUpdated: false
     },
     plugins: [
         ['@vuepress/google-analytics',
@@ -49,9 +50,16 @@ module.exports = {
         ['@vuepress/pwa',
             {
                 serviceWorker: true,
-                updatePopup: true
+                popupComponent: 'MySWUpdatePopup',
+                updatePopup: {
+                    message: "新しいコンテンツが追加されました。",
+                    buttonText: "更新",
+                }
             }
-        ]
+        ],
+        ['@vuepress/search', {
+            searchMaxSuggestions: 10
+        }]
     ]
 }
 

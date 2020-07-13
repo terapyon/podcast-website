@@ -1,9 +1,14 @@
 <template>
-  <div>
-    <div v-for="page in filteredPages" class="box-episode" v-if="!page.frontmatter.exclude">
+  <v-container>
+    <v-row
+      v-for="page in filteredPages"
+      :key="page.id"
+      class="box-episode"
+      v-if="!page.frontmatter.exclude"
+    >
       <DisplayEpisode :page="page" />
-    </div>
-  </div>
+    </v-row>
+  </v-container>
 </template>
 <script>
 import moment from "moment";
