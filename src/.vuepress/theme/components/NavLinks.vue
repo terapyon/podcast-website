@@ -1,6 +1,9 @@
 <template>
   <nav v-if="userLinks.length || repoLink" class="nav-links">
-    <v-list v-for="item in userLinks" :key="item.link">
+    <span v-for="item in userLinks" :key="item.link" v-if="!isList">
+      <NavLink :item="item" />
+    </span>
+    <v-list v-for="item in userLinks" :key="item.link" v-if="isList">
       <NavLink :item="item" />
     </v-list>
   </nav>
@@ -13,6 +16,7 @@ import NavLink from "./NavLink";
 
 export default {
   name: "NavLinks",
+  props: ["isList"],
 
   components: {
     NavLink

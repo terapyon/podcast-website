@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row>
+    <v-row style="font-size: 2rem;">
       <v-spacer></v-spacer>
       <v-col cols="auto">
         <ShareNetwork
@@ -40,3 +40,5 @@ export default {
   }
 };
 </script>
+<style scoped>
+</style>

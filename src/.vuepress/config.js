@@ -56,7 +56,10 @@ module.exports = {
                     buttonText: "更新",
                 }
             }
-        ]
+        ],
+        ['@vuepress/search', {
+            searchMaxSuggestions: 10
+        }]
     ]
 }
 

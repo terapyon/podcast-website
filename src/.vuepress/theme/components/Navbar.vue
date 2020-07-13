@@ -1,26 +1,11 @@
 <template>
   <v-card>
-    <v-app-bar
-      :collapse="!collapseOnScroll"
-      :collapse-on-scroll="collapseOnScroll"
-      app
-      color="primary accent-4"
-      dark
-    >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="material-icons"></v-app-bar-nav-icon>
-
-      <v-img
-        v-if="!collapseOnScroll"
-        class="logo"
-        width="50px"
-        :src="$withBase($site.themeConfig.logo)"
-        :alt="$siteTitle"
-      />
-
+    <v-app-bar app color="primary accent-4" dark>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="material-icons" v-if="isMobile"></v-app-bar-nav-icon>
       <v-toolbar-title>
         <RouterLink :to="$localePath">
           <v-row>
-            <v-col>
+            <v-col v-if="!isMobile">
               <v-img
                 v-if="$site.themeConfig.logo"
                 class="logo"
@@ -33,21 +18,14 @@
           </v-row>
         </RouterLink>
       </v-toolbar-title>
-      <!-- <v-spacer></v-spacer> -->
-      <!-- <SearchBox v-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false" /> -->
-      <!-- <v-toolbar-items>
-      <NavLinks />
-      </v-toolbar-items>-->
-      <!-- <v-btn v-if="collapseOnScroll" text rounded @click="toggleTheme">Toggle Theme</v-btn> -->
-
       <v-spacer></v-spacer>
-      <SearchBox />
-      <v-checkbox v-model="collapseOnScroll" color="white" hide-details></v-checkbox>
+      <SearchBox v-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false" />
+      <NavLinks v-if="!isMobile" :isList="false" />
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" app color="blue" dark>
+    <v-navigation-drawer v-model="drawer" app color="blue" dark v-if="isMobile">
       <v-list nav dense>
         <v-list-item-group v-model="group" active-class="deep-purple--text text--accent-4">
-          <NavLinks />
+          <NavLinks :isList="true" />
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
@@ -81,14 +59,25 @@ export default {
     }
   },
 
-  computed: {},
+  computed: {
+    isMobile() {
+      return this.$vuetify.breakpoint.xs;
+    }
+  },
 
   mounted() {}
 };
 </script>
-<style scoped>
+<style lang="stylus" scoped>
 .site-title {
   color: #ffff;
   font-size: 1.5em;
+}
+
+@media (max-width: $MQMobile) {
+  .site-title {
+    font-size: 1em;
+    padding: 0;
+  }
 }
 </style>
