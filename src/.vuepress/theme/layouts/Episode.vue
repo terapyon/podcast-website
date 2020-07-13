@@ -4,7 +4,9 @@
       <Siblings />
     </v-row>
     <v-row>
-      <Content />
+      <v-col>
+        <Content />
+      </v-col>
     </v-row>
     <v-row>
       <ShareLink />

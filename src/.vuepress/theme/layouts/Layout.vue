@@ -1,9 +1,8 @@
 <template>
-  <v-app class="overflow-hidden">
+  <v-app>
     <Navbar />
-
     <v-main id="main-content">
-      <component id="scrolling-techniques" class="overflow-y-auto" :is="layout" />
+      <component :is="layout" />
     </v-main>
     <Footer />
     <!-- </v-sheet> -->

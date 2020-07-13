@@ -1,17 +1,17 @@
 <template>
   <v-container>
     <v-row class="siblings">
-      <v-col>
+      <v-col cols="12" sm="4">
         <v-btn v-show="isPrevious" text rounded small>
           <RouterLink :to="previous.path">&lt; {{shortTitle(previous.title)}}</RouterLink>
         </v-btn>
       </v-col>
-      <v-col>
+      <v-col cols="12" sm="4">
         <v-btn text rounded small>
           <RouterLink to="/episodes/">Episode List</RouterLink>
         </v-btn>
       </v-col>
-      <v-col>
+      <v-col cols="12" sm="4">
         <v-btn v-show="isNext" text rounded small>
           <RouterLink :to="next.path">{{shortTitle(next.title)}} &gt;</RouterLink>
         </v-btn>
@@ -32,7 +32,7 @@ export default {
 
   methods: {
     shortTitle(s) {
-      const maxString = 15;
+      const maxString = 18;
       if (s.length > maxString) {
         return s.substring(0, maxString) + "...";
       } else {
@@ -105,5 +105,6 @@ button a {
 }
 .siblings {
   font-size: 50%;
+  text-align: center;
 }
 </style>
