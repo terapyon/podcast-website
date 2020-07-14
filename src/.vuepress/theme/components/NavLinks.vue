@@ -110,7 +110,7 @@ export default {
 
   a {
     line-height: 1.4rem;
-    color: inherit;
+    color: #fff;
     text-decoration: none;
   }
 

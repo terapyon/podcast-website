@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card class="episode-box">
     <v-row>
       <v-col cols="12" md="10">
         <h3>
@@ -50,6 +50,9 @@ export default {
 </script>
 
 <style scoped>
+.episode-box {
+  width: 100%;
+}
 h3 {
   font-size: 1.5rem;
   padding: 0 15px;
