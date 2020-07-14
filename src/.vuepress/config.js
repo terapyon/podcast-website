@@ -36,7 +36,8 @@ module.exports = {
             { text: 'Home', link: '/' },
             { text: 'About', link: '/about/' },
             { text: 'Episodes', link: '/episodes/' },
-            { text: 'Special', link: '/special/' }
+            { text: 'Special', link: '/special/' },
+            { text: "Misc", link: "/misc/" }
         ],
         searchPlaceholder: 'Search...',
         smoothScroll: true,
