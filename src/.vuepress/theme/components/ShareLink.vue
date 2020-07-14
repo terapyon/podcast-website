@@ -35,7 +35,7 @@ export default {
       return "Podcast terapyon channel 「" + this.$page.title + "」を共有";
     },
     shareUrl() {
-      return window.location.toString();
+      return "https://podcast.terapyon.net" + this.$page.path;
     }
   }
 };
