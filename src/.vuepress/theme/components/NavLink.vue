@@ -92,8 +92,14 @@ export default {
   }
 };
 </script>
-<style scoped>
-.nav-link a {
-  color: #fff;
+<style lang="stylus" scoped>
+.v-application {
+  a:not(.router-link-active) {
+    color: #fff;
+  }
+
+  a.router-link-active {
+    color: lightblue;
+  }
 }
 </style>

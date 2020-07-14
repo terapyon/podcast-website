@@ -1,6 +1,6 @@
 <template>
   <SWUpdatePopup v-slot="{ enabled, reload, message, buttonText }">
-    <v-alert v-if="enabled" prominent type="info">
+    <v-alert v-if="enabled" prominent type="info" class="my-sw-update-popup">
       <v-row align="center">
         <v-col class="grow">{{ message }}</v-col>
         <v-col class="shrink">
@@ -18,3 +18,13 @@ export default {
   components: { SWUpdatePopup }
 };
 </script>
+<style scoped>
+.my-sw-update-popup {
+  text-align: right;
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  font-size: 20px;
+  padding: 10px;
+}
+</style>
