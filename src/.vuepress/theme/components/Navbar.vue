@@ -1,11 +1,11 @@
 <template>
   <v-card>
     <v-app-bar app color="primary accent-4" dark>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="material-icons" v-if="isMobile"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="material-icons" v-show="isMobile"></v-app-bar-nav-icon>
       <v-toolbar-title>
         <RouterLink :to="$localePath">
           <v-row>
-            <v-col v-if="!isMobile">
+            <v-col v-show="!isMobile">
               <v-img
                 v-if="$site.themeConfig.logo"
                 class="logo"
@@ -20,9 +20,9 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <SearchBox v-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false" />
-      <NavLinks v-if="!isMobile" :isList="false" />
+      <NavLinks v-show="!isMobile" :isList="false" />
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" app color="blue" dark v-if="isMobile">
+    <v-navigation-drawer v-model="drawer" app color="blue" dark v-show="isMobile">
       <v-list nav dense>
         <v-list-item-group v-model="group" active-class="deep-purple--text text--accent-4">
           <NavLinks :isList="true" />
