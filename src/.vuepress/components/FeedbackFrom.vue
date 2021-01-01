@@ -88,7 +88,6 @@
 </template>
 <script>
 import axios from "axios";
-import { VueReCaptcha } from 'vue-recaptcha-v3'
 
 export default {
   name: "FeedbackFrom",
@@ -120,7 +119,6 @@ export default {
       if (this.name && this.email && this.message ) {
         this.requiredChk = true
       }
-      this.recaptcha()
       const axiosConfig = {
         header: { 'Content-Type': 'application/x-www-form-urlencoded' }
       }
@@ -157,13 +155,13 @@ export default {
       }
       this.snackbar = false
     },
-    recaptcha() {
-      // (optional) Wait until recaptcha has been loaded.
-      this.$recaptchaLoaded()
-      // Execute reCAPTCHA with action "login".
-      const token = this.$recaptcha('login')
-      // Do stuff with the received token.
-    }
+    // recaptcha() {
+    //   // (optional) Wait until recaptcha has been loaded.
+    //   this.$recaptchaLoaded()
+    //   // Execute reCAPTCHA with action "login".
+    //   const token = this.$recaptcha('login')
+    //   // Do stuff with the received token.
+    // }
   }
 };
 </script>
