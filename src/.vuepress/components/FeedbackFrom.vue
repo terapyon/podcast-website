@@ -54,6 +54,9 @@
             label="内容の公開を許可"
           ></v-checkbox>
         </v-col>
+        <!-- <v-col>
+          <button @click="recaptcha">Execute recaptcha</button>
+        </v-col> -->
       </v-row>
       <v-row>
         <v-col>
@@ -85,10 +88,11 @@
 </template>
 <script>
 import axios from "axios";
+import { VueReCaptcha } from 'vue-recaptcha-v3'
 
 export default {
   name: "FeedbackFrom",
-  props: ["pageUrl"],
+  props: [],
   data: () => {
     return {
       snsItems: ["Twitter", "Facebook", "Github", "Instagram"],
@@ -116,13 +120,14 @@ export default {
       if (this.name && this.email && this.message ) {
         this.requiredChk = true
       }
+      this.recaptcha()
       const axiosConfig = {
         header: { 'Content-Type': 'application/x-www-form-urlencoded' }
       }
       if (this.requiredChk) {
         this.snackbarText = "フィードバックが投稿されました。"
         axios.post(
-            this.pageUrl,
+            "/",
             this.encode({
               'form-name': 'ask-question',
               name: this.name,
@@ -151,6 +156,13 @@ export default {
         //
       }
       this.snackbar = false
+    },
+    recaptcha() {
+      // (optional) Wait until recaptcha has been loaded.
+      this.$recaptchaLoaded()
+      // Execute reCAPTCHA with action "login".
+      const token = this.$recaptcha('login')
+      // Do stuff with the received token.
     }
   }
 };
