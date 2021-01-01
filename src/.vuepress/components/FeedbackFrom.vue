@@ -133,8 +133,8 @@ export default {
       }
       if (this.requiredChk) {
         this.snackbarText = "フィードバックが投稿されました。"
-        axios.post(
-            "/",
+        const res = await axios.post(
+            "/feedback.html",
             this.encode({
               'form-name': 'ask-question',
               name: this.name,
@@ -146,13 +146,14 @@ export default {
             }),
             axiosConfig
           )
-          this.name = null
-          this.email = null
-          this.snsName = null
-          this.snsType = null
-          this.message = null
-          this.allow = false
-          this.requiredChk = false
+        console.log(res)
+        this.name = null
+        this.email = null
+        this.snsName = null
+        this.snsType = null
+        this.message = null
+        this.allow = false
+        this.requiredChk = false
       } else {
         this.snackbarText = "エラーがありました。必要情報（お名前、メールアドレス、内容）を入力してください。"
       }
