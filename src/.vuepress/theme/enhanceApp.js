@@ -6,6 +6,7 @@ import Vuetify from 'vuetify'
 import '../../../node_modules/vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.css'
 import VueSocialSharing from 'vue-social-sharing'
+import { VueReCaptcha } from 'vue-recaptcha-v3'
 
 
 export default ({
@@ -31,4 +32,5 @@ export default ({
             }
         }
     })
+    Vue.use([VueReCaptcha, { siteKey: '6Lc3kRwaAAAAAKNIqmQR6yyCIP1Hfnq4wqxMVraJ' }])
 }

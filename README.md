@@ -74,3 +74,13 @@ Netlifyに自動ビルドが走る
 # github actions
 
 自動でエピソードのコンテンツを作りPushする仕組みとした。ただし、新規コンテンツがなくてもコミット動作が動こうとしてエラーが創出される
+
+
+# フォームの追加
+
+```
+$ yarn add axios
+$ yarn add vue-recaptcha-v3
+```
+
+
