@@ -1,5 +1,13 @@
 <template>
   <v-container>
+    <form
+      name="ask-question"
+      method="post"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      @submit.prevent="handleSubmit"
+      >
+      <input type="hidden" name="form-name" value="ask-question" />
       <v-row>
         <v-col cols="12" md="6">
           <v-text-field
@@ -64,12 +72,12 @@
             width="100%"
             class="mr-4"
             color="primary"
-            @click="handleSubmit"
           >
             投稿
           </v-btn>
         </v-col>
       </v-row>
+    </form>
     <v-snackbar
       v-model="snackbar"
     > {{ snackbarText }}
