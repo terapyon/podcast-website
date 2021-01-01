@@ -8,3 +8,132 @@
         <button type="submit">投稿</button>
     </p>
 </form>
+
+
+<form name='ask-question' method='post'><input type="hidden" name="form-name" value="ask-question">
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div class="v-input theme--light v-text-field">
+                <div class="v-input__control">
+                    <div class="v-input__slot">
+                        <div class="v-text-field__slot"><label for="input-3947" class="v-label theme--light"
+                                style="left:0px;right:auto;position:absolute;">お名前またはラジオネーム（必須）</label><input
+                                name="name" required="required" id="input-3947" type="text"></div>
+                    </div>
+                    <div class="v-text-field__details">
+                        <div class="v-messages theme--light">
+                            <div class="v-messages__wrapper"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-12">
+            <div class="v-input theme--light v-text-field">
+                <div class="v-input__control">
+                    <div class="v-input__slot">
+                        <div class="v-text-field__slot"><label for="input-3950" class="v-label theme--light"
+                                style="left:0px;right:auto;position:absolute;">メールアドレス（必須）</label><input name="email"
+                                required="required" id="input-3950" type="text"></div>
+                    </div>
+                    <div class="v-text-field__details">
+                        <div class="v-messages theme--light">
+                            <div class="v-messages__wrapper"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div class="v-input theme--light v-text-field">
+                <div class="v-input__control">
+                    <div class="v-input__slot">
+                        <div class="v-text-field__slot"><label for="input-3953" class="v-label theme--light"
+                                style="left:0px;right:auto;position:absolute;">SNSアカウントネーム</label><input name="sns-name"
+                                id="input-3953" type="text"></div>
+                    </div>
+                    <div class="v-text-field__details">
+                        <div class="v-messages theme--light">
+                            <div class="v-messages__wrapper"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-12">
+            <div class="v-input theme--light v-text-field v-select">
+                <div class="v-input__control">
+                    <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-3956"
+                        class="v-input__slot">
+                        <div class="v-select__slot"><label for="input-3956" class="v-label theme--light"
+                                style="left:0px;right:auto;position:absolute;">SNSタイプ</label>
+                            <div class="v-select__selections"><input required="required" id="input-3956"
+                                    readonly="readonly" type="text" aria-readonly="false" autocomplete="off"></div>
+                            <div class="v-input__append-inner">
+                                <div class="v-input__icon v-input__icon--append"><i aria-hidden="true"
+                                        class="v-icon notranslate mdi mdi-menu-down theme--light"></i></div>
+                            </div><input type="hidden" name="sns-type">
+                        </div>
+                        <div class="v-menu">
+                            <!---->
+                        </div>
+                    </div>
+                    <div class="v-text-field__details">
+                        <div class="v-messages theme--light">
+                            <div class="v-messages__wrapper"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="v-input v-textarea theme--light v-text-field v-text-field--enclosed v-text-field--outlined">
+                <div class="v-input__control">
+                    <div class="v-input__slot">
+                        <fieldset aria-hidden="true">
+                            <legend style="width:0px;"><span>&#8203;</span></legend>
+                        </fieldset>
+                        <div class="v-text-field__slot"><label for="input-3961" class="v-label theme--light"
+                                style="left:0px;right:auto;position:absolute;">メッセージ内容（必須）</label><textarea
+                                name="message" id="input-3961" rows="5">null</textarea></div>
+                    </div>
+                    <div class="v-text-field__details">
+                        <div class="v-messages theme--light">
+                            <div class="v-messages__wrapper"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="v-input theme--light v-input--selection-controls v-input--checkbox">
+                <div class="v-input__control">
+                    <div class="v-input__slot">
+                        <div class="v-input--selection-controls__input"><i aria-hidden="true"
+                                class="v-icon notranslate mdi mdi-checkbox-blank-outline theme--light"></i><input
+                                aria-checked="false" id="input-3964" role="checkbox" type="checkbox"
+                                name="allow-public">
+                            <div class="v-input--selection-controls__ripple"></div>
+                        </div><label for="input-3964" class="v-label theme--light"
+                            style="left:0px;right:auto;position:relative;">内容の公開を許可</label>
+                    </div>
+                    <div class="v-messages theme--light">
+                        <div class="v-messages__wrapper"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col"><button type="button" class="mr-4 v-btn v-btn--contained theme--light v-size--default primary"
+                style="width:100%;"><span class="v-btn__content">
+                    投稿
+                </span></button></div>
+    </div>
+</form>
