@@ -23,7 +23,7 @@ Podcastについてのフィードバックや呼んでほしいゲスト、取�
     <input type="text" name="allow-public" />
 </form>
 
-<FeedbackFrom />
+<FeedbackFrom pageUrl="/feedback.html" />
 
 フィードバックに対して、基本的には返信いたしません。
 
