@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <form name="contact" method="POST" netlify netlify-honeypot="bot-field" hidden
+    <form name="ask-question" method="POST" netlify netlify-honeypot="bot-field" hidden
       @submit.prevent="handleSubmit">
       <input type="hidden" name="form-name" value="ask-question" />
       <v-row>
