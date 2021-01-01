@@ -5,7 +5,6 @@
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      @submit.prevent="handleSubmit"
       >
       <input type="hidden" name="form-name" value="ask-question" />
       <v-row>
@@ -72,6 +71,7 @@
             width="100%"
             class="mr-4"
             color="primary"
+            @click="handleSubmit"
           >
             投稿
           </v-btn>
@@ -124,6 +124,7 @@ export default {
         .join('&')
     },
     handleSubmit () {
+      console.log(this.name)
       if (this.name && this.email && this.message ) {
         this.requiredChk = true
       }
