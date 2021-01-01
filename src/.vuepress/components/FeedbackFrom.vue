@@ -1,6 +1,8 @@
 <template>
   <v-container>
-    <form name="contact" method="POST" netlify>
+    <form name="ask-question" method="POST" netlify netlify-honeypot="bot-field" hidden
+      @submit.prevent="handleSubmit">
+      <input type="hidden" name="form-name" value="ask-question" />
       <v-row>
         <v-col cols="12" md="6">
           <v-text-field
@@ -54,7 +56,6 @@
             width="100%"
             class="mr-4"
             color="primary"
-            type="submit"
           >
             投稿
           </v-btn>
@@ -72,6 +73,29 @@ export default {
       snsItems: ["Twitter", "Facebook", "Github", "Instagram"]
     };
   },
-  computed: {}
+  computed: {},
+  methods: {
+    encode (data) {
+      return Object.keys(data)
+        .map(
+          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join('&')
+    },
+    handleSubmit () {
+      const axiosConfig = {
+        header: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      }
+      this.axios
+        .post(
+          '/',
+          this.encode({
+            'form-name': 'contact',
+            ...this.form
+          }),
+          axiosConfig
+        )
+    }
+  }
 };
 </script>
