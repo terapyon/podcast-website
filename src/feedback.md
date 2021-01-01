@@ -14,13 +14,12 @@ Podcastについてのフィードバックや呼んでほしいゲスト、取�
 
 
 <form name="ask-question" method="POST" netlify netlify-honeypot="bot-field" hidden>
-    <input type="hidden" name="form-name" value="ask-question" />
     <input type="text" name="name" />
     <input type="text" name="email" />
-    <input type="text" name="sns-name" />
-    <input type="text" name="sns-type" />
+    <input type="text" name="snsName" />
+    <input type="text" name="snsType" />
     <input type="text" name="message" />
-    <input type="text" name="allow-public" />
+    <input type="text" name="allow" />
 </form>
 
 <FeedbackFrom pageUrl="/feedback.html" />
