@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <form name="feedback" method="POST" netlify>
+    <form name="contact" method="POST" netlify>
       <v-row>
         <v-col cols="12" md="6">
           <v-text-field
