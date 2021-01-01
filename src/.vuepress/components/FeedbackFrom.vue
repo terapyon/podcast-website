@@ -6,7 +6,7 @@
           <v-text-field
             v-model="name"
             name="name"
-            label="お名前またはラジオネーム"
+            label="お名前またはラジオネーム（必須）"
             required
           ></v-text-field>
         </v-col>
@@ -14,7 +14,7 @@
           <v-text-field
             v-model="email"
             name="email"
-            label="メールアドレス"
+            label="メールアドレス（必須）"
             required
           ></v-text-field>
         </v-col>
@@ -33,6 +33,7 @@
             name="sns-type"
             :items="snsItems"
             label="SNSタイプ"
+            required
           ></v-select>
         </v-col>
       </v-row>
@@ -42,7 +43,7 @@
           outlined
           v-model="message"
           name="message"
-          label="メッセージ内容"
+          label="メッセージ内容（必須）"
         ></v-textarea>
         </v-col>
       </v-row>
@@ -68,6 +69,20 @@
         </v-col>
       </v-row>
     </form>
+    <v-snackbar
+      v-model="snackbar"
+    > {{ snackbarText }}
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="blue"
+          text
+          v-bind="attrs"
+          @click="closeSnackbar"
+        >
+          閉じる
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-container>
 </template>
 <script>
@@ -75,16 +90,19 @@ import axios from "axios";
 
 export default {
   name: "FeedbackFrom",
-  props: [],
+  props: ["pageUrl"],
   data: () => {
     return {
       snsItems: ["Twitter", "Facebook", "Github", "Instagram"],
+      requiredChk: false,
       name: null,
       email: null,
       snsName: null,
       snsType: null,
       message: null,
-      allow: null
+      allow: false,
+      snackbar: false,
+      snackbarText: null
     };
   },
   computed: {},
@@ -97,23 +115,44 @@ export default {
         .join('&')
     },
     handleSubmit () {
+      if (this.name && this.email && this.message ) {
+        this.requiredChk = true
+      }
       const axiosConfig = {
         header: { 'Content-Type': 'application/x-www-form-urlencoded' }
       }
-      console.log(this.name)
-      axios.post(
-          '/',
-          this.encode({
-            'form-name': 'contact',
-            name: this.name,
-            email: this.email,
-            snsName: this.snsName,
-            snsType: this.snsType,
-            message: this.message,
-            allow: this.allow
-          }),
-          axiosConfig
-        )
+      if (this.requiredChk) {
+        this.snackbarText = "フィードバックが投稿されました。"
+        axios.post(
+            this.pageUrl,
+            this.encode({
+              'form-name': 'contact',
+              name: this.name,
+              email: this.email,
+              snsName: this.snsName,
+              snsType: this.snsType,
+              message: this.message,
+              allow: this.allow
+            }),
+            axiosConfig
+          )
+          this.name = null
+          this.email = null
+          this.snsName = null
+          this.snsType = null
+          this.message = null
+          this.allow = false
+          this.requiredChk = false
+      } else {
+        this.snackbarText = "エラーがありました。必要情報（お名前、メールアドレス、内容）を入力してください。"
+      }
+      this.snackbar = true
+    },
+    closeSnackbar () {
+      if (this.requiredChk) {
+        //
+      }
+      this.snackbar = false
     }
   }
 };
