@@ -1,6 +1,5 @@
 <template>
   <v-container>
-    <form name="ask-question" netlify>
       <v-row>
         <v-col cols="12" md="6">
           <v-text-field
@@ -68,7 +67,6 @@
           </v-btn>
         </v-col>
       </v-row>
-    </form>
     <v-snackbar
       v-model="snackbar"
     > {{ snackbarText }}
@@ -126,7 +124,7 @@ export default {
         axios.post(
             this.pageUrl,
             this.encode({
-              'form-name': 'contact',
+              'form-name': 'ask-question',
               name: this.name,
               email: this.email,
               snsName: this.snsName,
