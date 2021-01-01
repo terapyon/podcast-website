@@ -8,6 +8,7 @@
   },
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.21.1",
     "moment": "^2.25.3",
     "node-forge": "^0.10.0",
     "vue-social-sharing": "^3.0.0-beta.11",

@@ -13,6 +13,16 @@ meta:
 Podcastについてのフィードバックや呼んでほしいゲスト、取り上げてほしい内容などをフォームで投稿してください。
 
 
+<form name="ask-question" method="POST" netlify netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="ask-question" />
+    <input type="text" name="name" />
+    <input type="text" name="email" />
+    <input type="text" name="sns-name" />
+    <input type="text" name="sns-type" />
+    <input type="text" name="message" />
+    <input type="text" name="allow-public" />
+</form>
+
 <FeedbackFrom />
 
 フィードバックに対して、基本的には返信いたしません。
