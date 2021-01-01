@@ -123,7 +123,7 @@ export default {
         )
         .join('&')
     },
-    handleSubmit () {
+    async handleSubmit () {
       console.log(this.name)
       if (this.name && this.email && this.message ) {
         this.requiredChk = true
