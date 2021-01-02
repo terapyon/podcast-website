@@ -79,6 +79,7 @@
     </form>
     <v-snackbar
       v-model="snackbar"
+      timeout=10000
     > {{ snackbarText }}
       <template v-slot:action="{ attrs }">
         <v-btn
@@ -131,7 +132,7 @@ export default {
         header: { 'Content-Type': 'application/x-www-form-urlencoded' }
       }
       if (this.requiredChk) {
-        this.snackbarText = "フィードバックが投稿されました。"
+        this.snackbarText = "フィードバックが投稿されました。（テスト中のため送信できませんできた）"
         const res = await axios.post(
             "/feedback.html",
             this.encode({
