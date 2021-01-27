@@ -134,7 +134,7 @@ export default {
       if (this.requiredChk) {
         this.snackbarText = "フィードバックが投稿されました。（テスト中のため送信できませんできた）"
         const res = await axios.post(
-            "/feedback.html",
+            "/",
             this.encode({
               'form-name': 'ask-question',
               name: this.name,
