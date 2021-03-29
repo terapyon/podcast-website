@@ -25,7 +25,6 @@ jobs:
       run: |
         git config user.name "github-bot"
         git config user.email "terada@cmscom.jp"
-        git pull ${REPO} master
         git add -A
         git commit -a -m "Create a new episode content"
         git push ${REPO} master
