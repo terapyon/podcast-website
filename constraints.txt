@@ -1,0 +1,4 @@
+beautifulsoup4==4.12.2
+feedparser==6.0.10
+sgmllib3k==1.0.0
+soupsieve==2.4.1
