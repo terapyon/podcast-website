@@ -1,5 +1,4 @@
-import sys
-from typing import Dict, List, Generator, Optional
+from typing import Generator, Optional
 import dataclasses  # for Test
 from dataclasses import dataclass, field, asdict
 from pathlib import Path
@@ -73,11 +72,11 @@ def _html_to_str(s: str) -> str:
 class Episode:
     title: str
     summary: str
-    links: List[Dict[str, str]]
+    links: list[dict[str, str]]
     id: str
     author: str
     published: str
-    image: Dict[str, str]
+    image: dict[str, str]
     # duration: int  # itunes_duration
     itunes_season: int  # season number
     itunes_episode: int  # episode number
@@ -99,13 +98,13 @@ class Episode:
         self.description = _html_to_str(self.summary)[:100]
 
 
-def fetch_episode(url: str) -> List[Dict[str, Optional[str]]]:
+def fetch_episode(url: str) -> list[dict[str, Optional[str]]]:
     d = feedparser.parse(url)
     items = d.entries
     return items
 
 
-def get_detail(item: Dict[str, Optional[str]]) -> Episode:
+def get_detail(item: dict[str, Optional[str]]) -> Episode:
     field_values = [
         item.get(field.name) for field in dataclasses.fields(Episode) if field.init
     ]
@@ -186,6 +185,7 @@ if __name__ == "__main__":
     url = RSS_URL
     items = fetch_episode(url)
     status = "no"
+    breakpoint()
     for item in reversed(items):
         detail = get_detail(item)
         # print(detail)
