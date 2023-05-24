@@ -185,7 +185,6 @@ if __name__ == "__main__":
     url = RSS_URL
     items = fetch_episode(url)
     status = "no"
-    breakpoint()
     for item in reversed(items):
         detail = get_detail(item)
         # print(detail)
