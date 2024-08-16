@@ -10,6 +10,17 @@ meta:
 ---
 # Special
 
+## 100回記念公開収録
+
+2020年に始めた当Podcastが、2024年9月に100回を迎えることになりました。
+下記の通り、公開収録を開催します。
+
+- イベント名: terapyon channel 100回記念公開収録
+- 日時: 2024年9月7日（土）17時30分から収録開始
+- 開催場所: 雑談 | CRAFT BEER & PODCAST (JR東中野駅から徒歩2分)
+- [申し込みサイト](https://terapyon.connpass.com/event/326314/)
+
+
 ## Season 2 第1段 Effective Python
 
 - 全8話
