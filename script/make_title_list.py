@@ -12,6 +12,10 @@ def get_title(item: dict[str, str | None]) -> str | None:
     return item.get("title")
 
 
+def get_attr(item: dict[str, str | None], key: str) -> str | None:
+    return item.get(key, "?")
+
+
 if __name__ == "__main__":
     import sys
     args = sys.argv
@@ -24,5 +28,7 @@ if __name__ == "__main__":
     with open(filename, "w") as f:
         for item in reversed(items):
             title = get_title(item)
-            f.write(title)
+            date = get_attr(item, "published")
+            episode = get_attr(item, "itunes_episode")
+            f.write(f"{episode},{date},{title}")
             f.write("\n")
